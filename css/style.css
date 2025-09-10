@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --destaque: hsl(61, 70%, 36%);
+    --fundo-principal: hsl(0, 0%, 84%);
+    --fundo-card: hsl(0, 0%, 69%);
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--fundo-principal);
+}
+.card-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+    height: 50dvh;
+}
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 24px;
+    background-color: var(--fundo-card);
+    border-radius: 30px;
+    max-width: 20dvw;
+    max-height: 70dvh;
+}
+.card-storage {
+    display: flex;
+    gap: 30px;
+}
+.card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: var(--destaque);
+}
+.image {
+    max-width: 50%;
+}
+.image img,
+.card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    border: 3px solid;
+    object-fit: cover;
+    max-width: 200px;
+}
+.card-text {
+    padding: 30px;
+    text-align: center;
+}
+@media (max-width: 940px) {
+    .card,
+    .card-storage {
+        max-height: 50dvh;
+        max-width: 80dvw;
+    }
+}
