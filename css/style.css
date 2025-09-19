@@ -9,6 +9,7 @@
     --destaque: hsl(61, 70%, 36%);
     --fundo-principal: hsl(0, 0%, 84%);
     --fundo-card: hsl(0, 0%, 69%);
+    --fundo: hsl(0, 0%, 21%);
 }
 
 body {
@@ -18,19 +19,34 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--fundo-principal);
-    padding: 20px; 
+    padding: 20px;
 }
 
-/* Formulário de Criação */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .card-creator {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "h1 h1 h1"
+        "inputTittle inputTittle inputFile01"
+        "textArea01  textArea01 button01";
     align-items: center;
     justify-content: center;
-    gap: 20px; 
-    width: 100%; 
-    max-width: 500px; 
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 40px;
+    background-color: var(--fundo);
+    padding: 30px;
+    border-radius: 15px;
+    color: var(--fundo-principal);
 }
 
 .card-creator input,
@@ -41,6 +57,30 @@ body {
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1rem;
+}
+
+#input-image {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input-image::file-selector-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 0.80em;
+}
+
+#input-image::file-selector-button:hover {
+    opacity: 0.9;
 }
 
 .card-creator textarea {
@@ -60,14 +100,14 @@ body {
 
 .card {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     background-color: var(--fundo-card);
     border-radius: 30px;
-    width: 300px; 
-    min-height: 550px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    width: 300px;
+    min-height: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
@@ -114,7 +154,7 @@ body {
     .card {
         width: 80vw;
         max-width: 400px;
-        min-height: auto; 
+        min-height: auto;
     }
 }
 
@@ -123,7 +163,7 @@ body {
     body {
         padding: 15px;
     }
-    
+
     .card {
         width: 90vw;
     }

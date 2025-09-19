@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Card">
+    <meta name="author" content="Eduardo Barbosa Silva">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Criador de Cartões</title>
 </head>
 
@@ -15,11 +19,11 @@
     <div class="container">
         <div class="card-container">
             <div class="card-creator">
-                <h1>Crie seu cartão</h1>
-                <input type="text" id="input-titulo" placeholder="Titulo">
-                <textarea id="input-descricao" placeholder="Descrição"></textarea>
-                <input type="file" id="input-image">
-                <button id="btn-criar">Criar</button>
+                <h1 style="grid-area: h1;">Crie seu cartão</h1>
+                <input type="text" id="input-titulo" placeholder="Titulo" style="grid-area: inputTittle;">
+                <textarea id="input-descricao" placeholder="Descrição" style="grid-area: textArea01;"></textarea>
+                <input type="file" id="input-image" style="grid-area: inputFile01;">
+                <button id="btn-criar" style="grid-area: button01;">Criar</button>
             </div>
             <div class="card-storage">
                 <div class="card">
@@ -30,7 +34,8 @@
                     </div>
                     <div class="card-text">
                         <h3>Rosa</h3>
-                        <p>Uma bela rosa em plena floração, com pétalas delicadas e vibrantes que simbolizam amor e paixão. Suas folhas verdes contrastam perfeitamente com a cor intensa da flor.</p>
+                        <p>Uma bela rosa em plena floração, com pétalas delicadas e vibrantes que simbolizam amor e
+                            paixão. Suas folhas verdes contrastam perfeitamente com a cor intensa da flor.</p>
                     </div>
                 </div>
 
