@@ -21,28 +21,35 @@ btnCriar?.addEventListener('click', () => {
     reader.readAsDataURL(arquivoImagem);
 });
 function criarCard(titulo, descricao, imagemSrc) {
-    // 1. Criar os elementos HTML que formarão o card
     const cardDiv = document.createElement('div');
-    cardDiv.className = 'card'; // Adiciona a classe CSS para estilização
+    cardDiv.className = 'card';
     const imagem = document.createElement('img');
     imagem.src = imagemSrc;
+    imagem.alt = titulo;
     const cardImage = document.createElement('div');
     cardImage.className = 'card-image';
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'image';
     const cardText = document.createElement('div');
     cardText.className = 'card-text';
     const tituloH3 = document.createElement('h3');
     tituloH3.textContent = titulo;
     const descricaoP = document.createElement('p');
     descricaoP.textContent = descricao;
-    cardImage.appendChild(imagem);
+    imageWrapper.appendChild(imagem);
+    cardImage.appendChild(imageWrapper);
     cardText.appendChild(tituloH3);
     cardText.appendChild(descricaoP);
     cardDiv.appendChild(cardImage);
     cardDiv.appendChild(cardText);
-    cardContainer.appendChild(cardDiv);
+    if (cardContainer)
+        cardContainer.appendChild(cardDiv);
 }
 function limparFormulario() {
-    tituloInput.value = '';
-    descricaoInput.value = '';
-    fileInput.value = '';
+    if (tituloInput)
+        tituloInput.value = '';
+    if (descricaoInput)
+        descricaoInput.value = '';
+    if (fileInput)
+        fileInput.value = '';
 }

@@ -29,15 +29,20 @@ btnCriar?.addEventListener('click', () => {
 })
 
 function criarCard(titulo: string, descricao: string, imagemSrc: string) {
-    // 1. Criar os elementos HTML que formarão o card
+    
     const cardDiv = document.createElement('div');
-    cardDiv.className = 'card'; // Adiciona a classe CSS para estilização
+    cardDiv.className = 'card';
 
     const imagem = document.createElement('img');
     imagem.src = imagemSrc;
+    imagem.alt = titulo;
 
     const cardImage = document.createElement('div');
     cardImage.className = 'card-image';
+
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'image';
 
     const cardText = document.createElement('div');
     cardText.className = 'card-text';
@@ -49,8 +54,8 @@ function criarCard(titulo: string, descricao: string, imagemSrc: string) {
     descricaoP.textContent = descricao;
 
 
-
-    cardImage.appendChild(imagem);
+    imageWrapper.appendChild(imagem);
+    cardImage.appendChild(imageWrapper);
     cardText.appendChild(tituloH3);
     cardText.appendChild(descricaoP);
     cardDiv.appendChild(cardImage);

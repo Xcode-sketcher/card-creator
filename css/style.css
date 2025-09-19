@@ -4,11 +4,13 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 :root {
     --destaque: hsl(61, 70%, 36%);
     --fundo-principal: hsl(0, 0%, 84%);
     --fundo-card: hsl(0, 0%, 69%);
 }
+
 body {
     display: flex;
     align-items: center;
@@ -16,59 +18,123 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--fundo-principal);
+    padding: 20px; /* Adicionado para evitar que o conteúdo cole nas bordas em telas pequenas */
 }
+
+/* Formulário de Criação */
 .card-creator {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:40px;
-    height: 50dvh;
+    gap: 20px; /* Reduzido o gap */
+    width: 100%; /* Ocupa a largura total */
+    max-width: 500px; /* Limita a largura máxima em telas grandes */
+    margin-bottom: 40px; /* Adiciona espaço entre o formulário e os cards */
 }
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 24px;
-    background-color: var(--fundo-card);
-    border-radius: 30px;
-    max-width: 20dvw;
-    max-height: 70dvh;
+
+.card-creator input,
+.card-creator textarea,
+.card-creator button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
+
+.card-creator textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Container dos Cards */
 .card-storage {
     display: flex;
     gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha naturalmente */
+    width: 100%;
 }
+
+/* Estilo do Card Individual */
+.card {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--fundo-card);
+    border-radius: 30px;
+    width: 300px; /* Largura fixa para consistência, que será alterada em telas menores */
+    min-height: 550px; /* Altura mínima fixa */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil para destaque */
+}
+
 .card-image {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    border-radius: 30px;
+    height: 250px;
+    border-radius: 30px 30px 0 0; /* Arredonda apenas os cantos superiores */
     background-color: var(--destaque);
 }
+
 .image {
-    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.image img,
-.card-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 30px;
-    border: 3px solid;
+
+.image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white; /* Alterado para branco para mais contraste */
     object-fit: cover;
-    max-width: 200px;
 }
+
 .card-text {
-    padding: 30px;
+    padding: 20px; /* Padding ajustado */
     text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    width: 100%; /* Garante que o texto use todo o espaço interno */
 }
+
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas de Tablet (até 940px) */
 @media (max-width: 940px) {
-    .card,
     .card-storage {
-        max-height: 50dvh;
-        max-width: 80dvw;
+        flex-direction: column; /* Coloca os cards um embaixo do outro */
+        align-items: center; /* Centraliza os cards na vertical */
+        gap: 40px; /* Aumenta o espaço entre os cards empilhados */
+    }
+
+    .card {
+        width: 80vw; /* O card ocupa 80% da largura da tela */
+        max-width: 400px; /* Mas não passa de 400px, para não ficar largo demais */
+        min-height: auto; /* Deixa a altura se ajustar ao conteúdo */
+    }
+}
+
+/* Telas de Celular (até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 15px; /* Menor padding para telas pequenas */
+    }
+    
+    .card {
+        width: 90vw; /* O card ocupa quase toda a largura da tela */
+    }
+
+    .card-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-text p {
+        font-size: 0.9rem;
     }
 }
